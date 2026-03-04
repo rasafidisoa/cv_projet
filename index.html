@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Rasafidisoa Zafy Jean Baptiste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button id="darkModeBtn" class="dark-btn">🌙 Dark Mode</button>
+
+<div class="cv-container">
+
+    <header class="header">
+        <img src="baptiste.png" alt="Photo Baptiste">
+        <div class="info">
+            <h1>Information</h1>
+            <p>👨🏽‍💻 RASAFIDISOA Zafy Jean Baptiste</p>
+            <p>👨🏾‍💻 Licence parcours DA2I à EMIT Fianarantsoa</p>
+            <p>📅 05 Janvier 2005</p>
+            <p>📍 Soanierana Fianarantsoa</p>
+            <p>📞 038 39 274 80</p>
+            <p>📧 rasafidisoajeanbaptiste23@gmail.com</p>
+        </div>
+    </header>
+
+    <section>
+        <h2>Profil</h2>
+        <p>
+            Étudiant passionné par le développement web et la programmation.
+            Motivé, sérieux et prêt à développer mes compétences dans le domaine informatique.
+        </p>
+    </section>
+
+    <section>
+        <h2>Compétences</h2>
+        <div class="skills">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Algorithmique</span>
+            <span>Git & GitHub</span>
+            <span>Base de données (MERISE)</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Éducation</h2>
+        <ul>
+            <li><strong>2025 - 2026 :</strong> L1 Informatique</li>
+            <li><strong>2025 :</strong> Baccalauréat Série TGI</li>
+            <li>BEPC option B</li>
+            <li>CEPE</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Langues</h2>
+        <ul>
+            <li>Malagasy : Courant</li>
+            <li>Français : Bon niveau</li>
+            <li>Anglais : Notion de base</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Portfolio</h2>
+        <div class="portfolio">
+            <div class="project">
+                <h3>Projet CV HTML</h3>
+                <p>Création d’un CV normale en HTML & CSS.</p>
+            </div>
+
+            <div class="project">
+                <h3>Projet MERISE</h3>
+                <p>Modélisation MCD & MLD pour gestion d’établissement.</p>
+            </div>
+
+            <div class="project">
+                <h3>Mini Portfolio</h3>
+                <p>Site personnel responsive.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    // Dark/Light mode toggle
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    const body = document.body;
+    const cvContainer = document.querySelector('.cv-container');
+    const skills = document.querySelectorAll('.skills span');
+    const projects = document.querySelectorAll('.project');
+
+    darkModeBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        cvContainer.classList.toggle('dark-mode');
+        skills.forEach(skill => skill.classList.toggle('dark-mode'));
+        projects.forEach(project => project.classList.toggle('dark-mode'));
+
+        if(body.classList.contains('dark-mode')){
+            darkModeBtn.textContent = '☀️ Light Mode';
+        } else {
+            darkModeBtn.textContent = '🌙 Dark Mode';
+        }
+    });
+
+    // Scroll animation: fade in sections
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+        const triggerBottom = window.innerHeight / 5 * 4;
+
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+
+            if(sectionTop < triggerBottom){
+                section.classList.add('show');
+            } else {
+                section.classList.remove('show');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+
